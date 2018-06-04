@@ -18,5 +18,12 @@
     "tests"
   ],
   "dependencies": {
+    "angular": "^1.7.0",
+    "angular-route": "^1.7.0",
+    "angular-moment": "^1.2.0",
+    "firebase": "^5.0.2"
+  },
+  "resolutions": {
+    "angular": "1.7.0"
   }
 }
