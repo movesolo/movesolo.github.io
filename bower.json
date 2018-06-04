@@ -1,23 +1,22 @@
 {
   "name": "movesolo",
-  "description": "Movie to watch live service development using HTML5, Sass, AngularJS, Firebase, TheMovieDB",
-  "main": "index.html",
+  "version": "1.0.0",
   "authors": [
-    "Danie Abraham"
+    "Daniel Abraham <dannibla@github.com>"
   ],
+  "description": "A Platform to share movies links to watch online and download, Developed using AngularJS, Firebase and TheMovieDB",
+  "main": "index.html",
   "license": "MIT",
-  "homepage": "https://github.com/movesolo",
+  "private": true,
+  "homepage": "https://www.movesolo.com",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "lib/",
+    "test",
+    "tests"
   ],
   "dependencies": {
-    "angular": "^1.6.8",
-    "angular-route": "^1.6.8",
-    "angular-animate": "^1.6.8",
-    "angular-touch": "^1.6.8",
-    "firebase": "^4.9.0",
-    "angularfire": "^2.3.0"
   }
 }
