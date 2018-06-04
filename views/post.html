@@ -1,0 +1,101 @@
+<!--<div class="result">
+    <div class="" ng-show="selectedProject">
+        Movie Id: <span class="bold-span">{{selectedProject.originalObject.id}}</span><br>
+        Movie Title: <span class="bold-span">{{selectedProject.originalObject.title}}</span><br>
+        Movie Overview: <span class="bold-span">{{selectedProject.originalObject.overview}}</span><br>
+        Movie Rating: <span class="bold-span">{{selectedProject.originalObject.vote_average}}</span><br>
+        Movie Original Title: <span class="bold-span">{{selectedProject.originalObject.original_title}}</span><br>
+        Movie Release Date: <span class="bold-span">{{selectedProject.originalObject.release_date}}</span><br>
+    </div>
+</div>-->
+
+
+<a href="" ng-click="addPost()">Add New Post</a>
+
+<script type="text/ng-template" id="modalDialogId">
+
+    <input ng-model="confirmValue" />
+    <input ng-model="confirmValue1" />
+
+    <!--<form ng-submit="submitPost()">-->
+    <div class="padded-row">
+        <div angucomplete-alt id="ex5"
+             placeholder="Search Movies"
+             pause="500" selected-object="selectedProject"
+             remote-url="https://api.themoviedb.org/3/search/movie"
+             remote-url-request-formatter="remoteUrlRequestFn"
+             remote-url-data-field="results" title-field="title"
+             description-field="overview" minlength="1"
+             image-field="poster_path"
+             image-url="https://image.tmdb.org/t/p/w500/"
+             input-class="form-control form-control-small"
+             match-class="highlight">
+        </div>
+    </div>
+    <!--<button type="submit">Add Message</button>
+    </form>-->
+
+    <div class="ngdialog-buttons">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(confirmValue)">Confirm</button>
+        <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+    </div>
+</script>
+
+<div class="row" scroll-to-end="scroll" bind-to-window="true">
+    <div ng-show="loading" class="loader-container"><div class="loader"></div></div>
+    <div class="{{view}}" ng-repeat="movie in posts | orderBy:'-createdDate' | filter:search  | limitTo: paginationLimit()" ng-if="movie.movieInfo.poster_path" ng-if="movie.movieInfo.title">
+        <div class="m-main">
+            <div class="m-wrap">
+                <div class="m-body">
+                    <img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" />
+                    <div class="m-top">
+                        <div class="m-title">
+                            <span class="m-left">{{movie.movieInfo.title}}&nbsp;</span>
+                            <span class="m-right">&starf;&nbsp;{{movie.movieInfo.vote_average}}</span>
+                        </div>
+                        <div class="m-vote" ng-if="movie.upCount!=0 || movie.downCount!=0 || movie.viewCount!=0">
+                            <span class="m-up" ng-if="movie.upCount!=0"><i class="icon icon-like"></i>&nbsp;{{movie.upCount | rounded}}&nbsp;&nbsp;</span><span class="m-down" ng-if="movie.downCount!=0">&nbsp;<i class="icon icon-dislike"></i>&nbsp;{{movie.downCount | rounded}}&nbsp;&nbsp;</span><span class="m-view" ng-if="movie.viewCount!=0">&nbsp;<i class="icon icon-control-play"></i>&nbsp;{{movie.viewCount | rounded}}</span>
+                        </div>
+                    </div>
+                    <div class="m-bottom">
+                        <div class="m-user">
+                            <span class="m-name" data-test="/movesolo/#!{{movie.userId}}">{{movie.userName}}</span><span class="m-time" title="{{ movie.createdDate | timeago }}">&nbsp;.&nbsp;{{ movie.createdDate | timeago }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-foot">
+                    <a ng-click="count(movie.$id,'up')"><i class="icon icon-like"></i>Active</a><a ng-click="count(movie.$id,'down')"><i class="icon icon-dislike"></i>Broken</a><a ng-click="count(movie.$id,'view')"><i class="icon icon-control-play"></i>Watch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-movie {{view}}" id="showMoreItems" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+        <div class="movie-banner">
+
+            <!--<img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" class="img-responsive" />
+            <p>{{movie.movieInfo.title}}</p>-->
+            <!--<time class="timeago" title="Posted On {{movie.createdDate | date:'medium'}}">{{movie.createdDate}}</time>
+            <button ng-click="movie.$remove(post)">Delete Message</button>-->
+        </div>
+        <
+    </div>
+</div>
+
+
+<div class="row" style="padding: 5px;display:none;">
+    <div ng-show="loading" class="loader-container"><div class="loader"></div></div>
+    <div class="col-movie {{view}}" ng-repeat="movie in posts | orderBy:'-createdDate' | limitTo: paginationLimit() | filter:search" ng-if="movie.movieInfo.poster_path" ng-if="movie.movieInfo.title">
+        <div class="movie-banner">
+            <img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" class="img-responsive" />
+            <p>{{movie.movieInfo.title}}</p> <time class="timeago" title="Posted On {{movie.createdDate | date:'medium'}}">{{movie.createdDate}}</time>
+            <!--<button ng-click="movie.$remove(post)">Delete Message</button>-->
+        </div>
+    </div>
+    <div class="col-movie {{view}}" id="showMoreItems" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+        <div class="movie-banner">
+            <img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" class="img-responsive" />
+            <p>{{movie.movieInfo.title}}</p> <time class="timeago" title="Posted On {{movie.createdDate | date:'medium'}}">{{movie.createdDate}}</time>
+            <!--<button ng-click="movie.$remove(post)">Delete Message</button>-->
+        </div>
+    </div>
+</div>

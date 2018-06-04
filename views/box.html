@@ -1,0 +1,38 @@
+<!--<div class="result">
+    <div class="" ng-show="selectedProject">
+        Movie Id: <span class="bold-span">{{selectedProject.originalObject.id}}</span><br>
+        Movie Title: <span class="bold-span">{{selectedProject.originalObject.title}}</span><br>
+        Movie Overview: <span class="bold-span">{{selectedProject.originalObject.overview}}</span><br>
+        Movie Rating: <span class="bold-span">{{selectedProject.originalObject.vote_average}}</span><br>
+        Movie Original Title: <span class="bold-span">{{selectedProject.originalObject.original_title}}</span><br>
+        Movie Release Date: <span class="bold-span">{{selectedProject.originalObject.release_date}}</span><br>
+    </div>
+</div>-->
+
+<form ng-submit="submitPost()">
+    <div class="padded-row">
+        <div angucomplete-alt id="ex5"
+             placeholder="Search projects"
+             pause="500" selected-object="selectedProject"
+             remote-url="https://api.themoviedb.org/3/search/movie"
+             remote-url-request-formatter="remoteUrlRequestFn"
+             remote-url-data-field="results" title-field="title"
+             description-field="overview" minlength="2"
+             image-field="poster_path"
+             image-url="https://image.tmdb.org/t/p/w500/"
+             input-class="form-control form-control-small"
+             match-class="highlight">
+        </div>
+    </div>
+    <button type="submit">Add Message</button>
+</form>
+<div class="row" scroll-to-end="scroll" bind-to-window="true" style="padding: 5px;">
+    <div ng-show="loading" class="loader-container"><div class="loader"></div></div>
+    <div class="col-movie {{view}}" ng-repeat="movie in posts | filter:search | orderBy:'-createdDate' " ng-if="movie.movieInfo.poster_path || movie.movieInfo.title">
+        <div class="movie-banner">
+            <img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" class="img-responsive" />
+            <p>{{movie.movieInfo.title}}</p> <time class="timeago" title="Posted On {{movie.createdDate | date:'medium'}}">{{movie.createdDate}}</time>
+            <!--<button ng-click="movie.$remove(post)">Delete Message</button>-->
+        </div>
+    </div>
+</div>
