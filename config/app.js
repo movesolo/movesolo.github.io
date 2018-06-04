@@ -45,9 +45,9 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/user.html'
         })
         .otherwise({ redirectTo: '/home' });
-    //$locationProvider
-    //    .html5Mode(true)
-    //    .hashPrefix('!');
+    $locationProvider
+        .html5Mode(true)
+        .hashPrefix('!');
 });
 
 //  re-usable factory that generates $firebaseAuth instance
