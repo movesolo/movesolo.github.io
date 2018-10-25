@@ -1,0 +1,45 @@
+
+    <form name="myForm">
+        <select name="sortlist" id="sortlist" ng-options="option.header for option in sortlist.available track by option.id"
+                ng-model="sortlist.selected" ng-change="update()"></select>
+        <select name="viewlist" id="viewlist" ng-options="option.header for option in viewlist.available track by option.id"
+                ng-model="viewlist.selected" ng-change="list()"></select>
+        <a href="#!List">List</a>
+    </form>
+
+    <div class="row" scroll-to-end="scroll" bind-to-window="true">
+        <div ng-show="loading" class="loader-container"><div class="loader"></div></div>
+        <div class="{{view}}" ng-repeat="movie in movies | filter:search " ng-if="movie.poster_path && movie.title">
+            <div class="m-main">
+                <div class="m-wrap">
+                    <div class="m-body">
+                        <img ng-src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+                        <div class="m-top">
+                            <div class="m-title">
+                                <span class="m-left">{{movie.title}}&nbsp;</span>
+                                <span class="m-right">&starf;&nbsp;{{movie.vote_average}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-foot">
+                        <a ng-click="count(movie.$id,'up')"><i class="icon icon-like"></i>Active</a><a ng-click="count(movie.$id,'down')"><i class="icon icon-dislike"></i>Broken</a><a ng-click="count(movie.$id,'view')"><i class="icon icon-control-play"></i>Watch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-movie {{view}}" id="showMoreItems" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+            <div class="movie-banner">
+
+                <!--<img ng-src="https://image.tmdb.org/t/p/w500/{{movie.movieInfo.poster_path}}" class="img-responsive" />
+            <p>{{movie.movieInfo.title}}</p>-->
+                <!--<time class="timeago" title="Posted On {{movie.createdDate | date:'medium'}}">{{movie.createdDate}}</time>
+            <button ng-click="movie.$remove(post)">Delete Message</button>-->
+            </div>
+            <
+        </div>
+    </div>
+
+
+<!--<a data-id="{{movie.id}}">
+            <div class="movie-collection"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+        </a>-->

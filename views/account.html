@@ -1,0 +1,126 @@
+<div id="modal1" class="modal fade in" role="dialog">
+    <div class="pop">
+        <div class="pop-left">
+            <h1>Hello... <span class="ng-binding"></span></h1>
+            <p>Don't have an account? Create your account. It's take less then a minutes</p>
+            <h4>Login with social media</h4>
+            <ul>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="18" height="18" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24"><path d="M17 2v4.002h-2c-.69 0-1 .809-1 1.5v2.5h3v4h-3v8L10 22v-7.998H7v-4h3v-4a4 4 0 0 1 4-4L17 2z" fill="#fff" /><rect x="0" y="0" width="18" height="18" fill="rgba(0, 0, 0, 0)" /></svg>                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="GoogleAuth()">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="18" height="18" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24"><path d="M21.354 11.104H12.18v2.722h6.506c-.321 3.817-3.497 5.445-6.495 5.445-3.836 0-7.182-3.018-7.182-7.247 0-4.12 3.19-7.294 7.19-7.294 3.087 0 4.905 1.967 4.905 1.967l1.907-1.973S16.564 2 12.102 2C6.421 2 2.025 6.795 2.025 11.975 2.025 17.051 6.16 22 12.247 22c5.354 0 9.273-3.668 9.273-9.09 0-1.145-.166-1.806-.166-1.806z" fill="#fff" /><rect x="0" y="0" width="18" height="18" fill="rgba(0, 0, 0, 0)" /></svg>                        Google
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="18" height="18" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24"><path d="M22.46 6.012a8.58 8.58 0 0 1-2.466.676 4.305 4.305 0 0 0 1.887-2.374 8.591 8.591 0 0 1-2.725 1.041 4.292 4.292 0 0 0-7.313 3.914 12.184 12.184 0 0 1-8.846-4.483 4.271 4.271 0 0 0-.581 2.157 4.29 4.29 0 0 0 1.91 3.572 4.276 4.276 0 0 1-1.945-.537v.054c0 2.08 1.48 3.814 3.443 4.209a4.296 4.296 0 0 1-1.939.073 4.296 4.296 0 0 0 4.01 2.98 8.61 8.61 0 0 1-5.33 1.838c-.347 0-.688-.02-1.024-.06A12.147 12.147 0 0 0 8.12 21c7.893 0 12.21-6.54 12.21-12.21 0-.187-.004-.372-.012-.556a8.719 8.719 0 0 0 2.141-2.222z" fill="#fff" /><rect x="0" y="0" width="18" height="18" fill="rgba(0, 0, 0, 0)" /></svg>                        Twitter
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pop-right">
+            <a href="beta.html#!/home" class="pop-close">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="34" height="34" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="#626262" d="M340.2 160l-84.4 84.3-84-83.9-11.8 11.8 84 83.8-84 83.9 11.8 11.7 84-83.8 84.4 84.2 11.8-11.7-84.4-84.3 84.4-84.2z" /><rect x="0" y="0" width="34" height="34" fill="rgba(0, 0, 0, 0)" /></svg>
+            </a>
+            <div ng-class="{'ng-show-form': login, 'ng-hide-form': !login}">
+                <h4>Login</h4>
+                <p>Don't have an account? Create your account. It's take less then a minutes</p>
+                <form name="loginForm" ng-submit="loginSubmit()">
+                    <div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" ng-model="email" name="email" required="required" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" ng-model="password" name="password" required="required" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="checkbox-field">
+                            <p>
+                                <input type="checkbox" id="test5">
+                                <label for="test5">Remember me</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-field">
+                            <i class="waves-effect waves-light log-in-btn waves-input-wrapper"><input type="submit" ng-disabled="loginForm.$invalid" value="Login" class="waves-button-input"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field s12"> <a href="beta.html#!/account/reset">Forgot password</a> | <a href="beta.html#!/account/register">Create a new account</a></div>
+                    </div>
+                </form>
+            </div>
+            <div ng-class="{'ng-show-form': register, 'ng-hide-form': !register}">
+                <h4>Create an Account</h4>
+                <p>Don't have an account? Create your account. It's take less then a minutes</p>
+                <form name="registerForm" ng-submit="registerSubmit()">
+                    <div>
+                        <div class="input-field">
+                            <label>Display Name</label>
+                            <input type="text" ng-model="name" name="name" required="required" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" ng-model="email" name="email" required="required" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" ng-model="password" name="password" required="required" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-field">
+                            <i class="waves-effect waves-light log-in-btn waves-input-wrapper">
+                                <input type="submit" ng-disabled="registerForm.$invalid" value="Register" class="waves-button-input" />
+                            </i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field"> <a href="beta.html#!/account/login">Are you a already member ? Login</a></div>
+                    </div>
+                </form>
+            </div>
+            <div ng-class="{'ng-show-form': reset, 'ng-hide-form': !reset}">
+                <h4>Forgot password</h4>
+                <p>Don't have an account? Create your account. It's take less then a minutes</p>
+                <form>
+                    <div>
+                        <div class="input-field">
+                            <label class="">Email Id</label>
+                            <input type="email" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-field">
+                            <i class="waves-effect waves-light log-in-btn waves-input-wrapper">
+                                <input type="submit" value="Submit" class="waves-button-input" />
+                            </i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-field">
+                            <a href="beta.html#!/account/register">Create a new account</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+<a href="" ng-click="addPost()">Add New Post</a>
+
+
+
+
+
+{{MovieId}}<br>
+{{MovieTitle}}<br>
+{{MoviePosterPath}}<br>
+{{MovieBackdropPath}}<br>
+{{MovieOriginalTitle}}<br>
+{{MovieOverview}}<br>
+{{MovieGenre}}<br>
+{{MovieReleaseDate}}<br>
+{{MovieRating}}<br>
+<input ng-model="confirmValue" placeholder="Movie URL" />
+<input ng-model="confirmValue1" placeholder="URL Type" />
+<form ng-submit="submitPost()">
+    <div class="padded-row">
+        <div angucomplete-alt id="ex5"
+             placeholder="Add Movie"
+             pause="500" selected-object="selectedProject"
+             remote-url="https://api.themoviedb.org/3/search/movie"
+             remote-url-request-formatter="remoteUrlRequestFn"
+             remote-url-data-field="results" title-field="title"
+             description-field="overview" minlength="1"
+             image-field="poster_path"
+             image-url="https://image.tmdb.org/t/p/w500/"
+             input-class="form-control form-control-small"
+             match-class="highlight">
+        </div>
+    </div>
+    <button type="submit">Add Message</button>
+</form>
