@@ -1,0 +1,30 @@
+{
+    "name": "movesolo",
+    "version": "1.0.0",
+    "authors": [
+        "Daniel Abraham <dannibla@github.com>"
+    ],
+    "description": "A Platform to share movies links to watch online and download, Developed using AngularJS, Firebase and TheMovieDB",
+    "main": "index.html",
+    "license": "MIT",
+    "private": true,
+    "homepage": "https://www.movesolo.com",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "lib/",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular": "^1.7.5",
+        "angular-route": "^1.7.5",
+        "angular-moment": "^1.2.0",
+        "firebase": "^5.5.3",
+        "moment": "^2.22.2"
+    },
+    "resolutions": {
+        "angular": "^1.7.5"
+    }
+}
